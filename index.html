@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine</title>
+    <style>
+        body {
+            background-color: #ffc0cb;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .button {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .boxyn{
+            margin-right: 15%;
+            margin-top: 2%;
+        }
+        .yes {
+            background-color: #28a745;
+            color: white;
+            margin-top: 9%;
+        }
+        .no {
+            background-color: #dc3545;
+            color: white;
+            position: absolute;
+            margin-top: 2%;
+            margin-left: 10%;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Do you want to be my Valentine? 💖</h1>
+    <div class="boxyn">
+        <button class="button no" id="noButton" onmouseover="moveButton()">No 😭</button><br>
+        <button class="button yes" onclick="showMessage('🎉 Yay! I knew it, Love U ❤️')">Yes 😍</button>
+    </div>
+    <p id="response" style="font-size: 24px; color: purple; margin-top: 20px;"></p>
+
+    <script>
+        let button = document.getElementById('noButton');
+        button.style.left = Math.random() * (window.innerWidth - button.clientWidth);
+        function showMessage(message) {
+            document.getElementById('response').textContent = message;
+            document.querySelector('.yes').classList.add('hidden');
+            document.querySelector('.no').classList.add('hidden');
+        }
+
+        function moveButton() {
+            let button = document.getElementById('noButton');
+            let x = Math.random() * (window.innerWidth - button.clientWidth);
+            let y = Math.random() * (window.innerHeight - button.clientHeight);
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
